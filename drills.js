@@ -2,6 +2,7 @@ const quickSort = require('./quickSort');
 const mergeSort = require('./mergeSort');
 const insertionSort = require('./insertionSort');
 const LinkedList = require('./linkedList');
+
 // 1. Understanding merge sort
 // given this array [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40]
 /*
@@ -108,4 +109,16 @@ function bucketSort(arr, min,max,size= arr.length){
 }
 
 let arr= [89, 30, 25, 32, 72, 70];
-console.log(bucketSort(arr,25,89));
+// console.log(bucketSort(arr,25,89));
+
+// 7. Sort in place
+
+
+
+// 8. Sorting books
+const test = ['The Big Fox', 'A Car Stole My Dog', 'Zebras Are Cool', 'The Big Apple', 'Lord of the Rings', 'The Witcher', 'Catcher in the Rye'];
+function sortBooks(arr) {
+  return insertionSort(arr);
+}
+
+console.log(sortBooks(test))
