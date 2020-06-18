@@ -1,5 +1,6 @@
 const quickSort = require('./quickSort');
 const mergeSort = require('./mergeSort');
+const insertionSort = require('./insertionSort');
 const LinkedList = require('./linkedList');
 // 1. Understanding merge sort
 // given this array [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40]
@@ -78,3 +79,33 @@ function linkedMSort(linkedList){
 }
 
 console.log(linkedMSort(linked))
+
+
+function bucketSort(arr, min,max,size= arr.length){
+  if(arr.length === 0){
+    return arr;
+  }
+
+  size = size || 5;
+  let bucketCount = Math.floor((max - min / size) + 1);
+  let buckets = new Array(bucketCount);
+  for (let i = 0; i < buckets.length; i++) {
+    buckets[i] = [];
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    buckets[Math.floor((arr[i] - min) / size)].push(arr[i]);
+  }
+
+  arr.length = 0;
+  for (let i = 0; i < buckets.length; i++) {
+    insertionSort(buckets[i]);
+    for (var j = 0; j < buckets[i].length; j++) {
+      arr.push(buckets[i][j]);
+    }
+  }
+  return arr;
+}
+
+let arr= [89, 30, 25, 32, 72, 70];
+console.log(bucketSort(arr,25,89));
