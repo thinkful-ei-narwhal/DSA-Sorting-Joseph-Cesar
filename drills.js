@@ -1,6 +1,6 @@
 const quickSort = require('./quickSort');
 const mergeSort = require('./mergeSort');
-
+const LinkedList = require('./linkedList');
 // 1. Understanding merge sort
 // given this array [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40]
 /*
@@ -45,8 +45,19 @@ const testArray = [89, 30, 25, 32, 72, 70, 51, 42, 25, 24, 53, 55, 78, 50, 13, 4
 console.log(qSort(testArray));
 
 // 4. Implementing merge sort
-
 function mSort(arr){
   return mergeSort(arr);
 }
 console.log(mergeSort(testArray));
+
+// 5. Sorting a linked list using merge sort
+const linked = new LinkedList();
+linked.insertFirst(15);
+linked.insertFirst(5);
+linked.insertFirst(10);
+linked.insertFirst(1);
+linked.insertFirst(20);
+
+// function linkedMSort(arr){
+//   return mergeSort(arr);
+// }
